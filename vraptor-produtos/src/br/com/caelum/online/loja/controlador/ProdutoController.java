@@ -43,6 +43,11 @@ public class ProdutoController {
 		result.redirectTo(ProdutoController.class).lista();
 	}
 	
+	public void remove(Produto produto) {
+		this.produtos.remove(produto);
+		result.nothing();
+	}
+	
 	public List<Produto> lista(){
 		return produtos.pegaTodos();
 	}
