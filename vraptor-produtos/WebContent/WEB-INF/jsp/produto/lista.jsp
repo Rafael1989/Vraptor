@@ -11,6 +11,11 @@ function remover(id){
 		alert('Removido com sucesso!');
 	});
 }
+function exibeJson(id){
+	$.get('/vraptor-produtos/produto/'+id+'/json',function(dados){
+		$('#json').html('Id:'+dados.produto.id+'<br/> Nome:'+dados.produto.nome+'<br/> Descrição:'+dados.produto.descricao+'<br/> Cor:'+dados.produto.cor+'<br/> Preço:'+dados.produto.preco);
+	});
+}
 </script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Produtos</title>
@@ -26,8 +31,10 @@ function remover(id){
 				<td>${produto.cor}</td>
 				<td>${produto.preco}</td>
 				<td><a href="javascript:void(0);" onclick="remover(${produto.id})">Remover</a></td>
+				<td><a href="javascript:void(0);" onclick="exibeJson(${produto.id})">Json</a></td>
 			</tr>
 		</c:forEach>
 	</table>
+	<div id="json"></div>
 </body>
 </html>
