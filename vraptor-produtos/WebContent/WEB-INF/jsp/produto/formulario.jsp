@@ -8,6 +8,9 @@
 <title>Produto</title>
 </head>
 <body>
+	<c:forEach items="${errors}" var="error">
+		<p style="color: red">${error.category} - ${error.message}</p>
+	</c:forEach>
 	<form action="<c:url value="/produto/adiciona"/>" method="post">
 		Nome:<input type="text" name="produto.nome"/><br/>
 		Preço:<input type="text" name="produto.preco"/><br/>
